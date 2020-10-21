@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {Employee} from '../Model/Employee';
 import {Patient} from '../Model/Patient';
 import {Medicine} from '../Model/Medicine';
+import {Room} from '../Model/Room';
+import {PatientRoom} from '../Model/PatientRoom';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,9 +13,12 @@ import { Observable } from 'rxjs';
 export class DataService {
 
   baseUrl = '/ClinicaWeb-1.0-SNAPSHOT';
-  urlEmployee = '/crudemployee'
+  urlEmployee = '/crudemployee';
   urlPatient = '/crudpatient';
-  urlMedicine = '/crudmedicine'
+  urlMedicine = '/crudmedicine';
+  urlRoom = '/crudRoom';
+  urlPatientRoom = '/crudPatientRoom'
+  
   constructor(private http:HttpClient) { }
 
 
@@ -31,5 +36,11 @@ export class DataService {
     return this.http.get<Medicine[]>(this.baseUrl+this.urlMedicine);
   }
 
+  getRoom(): Observable<Room[]>{
+    return this.http.get<Room[]>(this.baseUrl+this.urlRoom);
+  }
 
+  getPatientRoom(): Observable<PatientRoom[]>{
+    return this.http.get<PatientRoom[]>(this.baseUrl+this.urlPatientRoom);
+  }
 }
