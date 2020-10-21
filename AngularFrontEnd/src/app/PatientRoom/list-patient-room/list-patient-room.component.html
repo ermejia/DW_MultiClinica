@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h1>Patients Room</h1>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Id Patient</th>
+                        <th>Id Room</th>
+                        <th>Date In</th>
+                        <th>Date Out</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor= " let data of patientRooms ">
+                    <td>{{data.idPatientRoom}}</td>
+                    <td>{{data.idPatient}}</td>
+                    <td>{{data.idRoom}}</td>
+                    <td>{{data.dateIn}}</td>
+                    <td>{{data.dateOut}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
