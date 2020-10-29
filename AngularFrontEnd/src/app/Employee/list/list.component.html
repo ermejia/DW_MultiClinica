@@ -1,10 +1,11 @@
-<div class="container">
+
+<div class="container col-md-10">
     <div class="card">
         <div class="card-header">
-            <h1>Employees</h1>
+            <h1><img src="https://www.flaticon.es/svg/static/icons/svg/2996/2996643.svg" width="100" height="100" class="d-inline-block align-top" alt="">Employees</h1>
         </div>
         <div class="card-body">
-            <table class="table table-hover">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -16,12 +17,13 @@
                         <th>Phone</th>
                         <th>Contact Phone</th>
                         <th>BirthDate</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                <tr *ngFor= " let data of employees  ">
+                <tr *ngFor= "let data of employees | async">
                     <td>{{data.idEmpmloyee}}</td>
-                    <td>{{data.idJob}}</td> 
+                    <td>{{data.idJob}}</td>
                     <td>{{data.name}}</td>
                     <td>{{data.surname}}</td>
                     <td>{{data.dpi}}</td>
@@ -29,9 +31,16 @@
                     <td>{{data.phone}}</td>
                     <td>{{data.contactphone}}</td>
                     <td>{{data.birthdate}}</td>
+                    <td>
+                    <button aling= "center" (click)="EditEmployee(data.idEmpmloyee)" class="btn btn-warning">
+                        <span class="back">
+                        <img src="https://www.flaticon.es/svg/static/icons/svg/2771/2771872.svg" width="30" height="30" alt="">
+                    </span><span class="front" style="margin: 3px"></span></button>
+                    </td>
                 </tr>
                 </tbody>
             </table>
+            <button (click)="AddEmployee()" class="btn btn-dark">Add New</button>
         </div>
     </div>
 </div>
