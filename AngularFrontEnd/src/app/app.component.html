@@ -1,13 +1,34 @@
+
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
-<h1>MultiClinic</h1>
+<h1></h1>
 </div>
 
-<div class="content" role="main">
-<button (click)="List()" class="btn btn-warning" style="margin: 10px">List Employee</button>
-<button (click)="ListPatient()" class="btn btn-success" style="margin: 10px">List Patient</button>
-<button (click)="ListMedicine()" class="btn btn-info" style="margin: 10px">List Medicine</button>
-</div>
-
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">MultiClinics</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+            <button (click)="List()" class="btn btn-warning" style="margin: 10px">Employees</button>
+        </li>
+        <li class="nav-item">
+            <button (click)="ListPatient()" class="btn btn-success" style="margin: 10px">Patients</button>
+        </li>
+        <li class="nav-item">
+            <button (click)="ListMedicine()" class="btn btn-info" style="margin: 10px">Medicines</button>
+        </li>
+        <li>
+            <button (click)="ListRoom()" class="btn btn-danger" style="margin: 10px">Rooms</button>
+        </li>
+        <li>
+            <button (click)="ListPatientRoom()" class="btn btn-primary" style="margin: 10px">Patient Rooms</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+   
 
 <router-outlet></router-outlet>

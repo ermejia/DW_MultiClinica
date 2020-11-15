@@ -11,7 +11,7 @@ export class AppComponent {
 
   constructor(private router:Router){
   }
-  
+
   List(){
     this.router.navigate(["list"]);
   }
@@ -21,4 +21,11 @@ export class AppComponent {
   ListMedicine(){
     this.router.navigate(["listMedicine"]);
   }
+  ListRoom(){
+    this.router.navigate(["listRoom"]);
+  }
+  ListPatientRoom(){
+    this.router.navigate(["listPatientRoom"]);
+  }
+
 }
