@@ -13,12 +13,13 @@ import { Observable } from 'rxjs';
 export class DataService {
 
   baseUrl = '/ClinicaWeb-1.0-SNAPSHOT';
-  urlEmployee = '/crudemployee';
+  urlEmployee = '/EmployeeServlet';
   urlPatient = '/crudpatient';
   urlMedicine = '/crudmedicine';
   urlRoom = '/crudRoom';
   urlPatientRoom = '/crudPatientRoom'
-  
+  urlEmployeeId = '/ServletGetEmployeeId';
+
   constructor(private http:HttpClient) { }
 
 
@@ -26,7 +27,6 @@ export class DataService {
   getEmployees(): Observable<Employee[]>{
     return this.http.get<Employee[]>(this.baseUrl+this.urlEmployee);
   }
-
 
   getPatient(): Observable<Patient[]>{
     return this.http.get<Patient[]>(this.baseUrl+this.urlPatient);
@@ -42,5 +42,9 @@ export class DataService {
 
   getPatientRoom(): Observable<PatientRoom[]>{
     return this.http.get<PatientRoom[]>(this.baseUrl+this.urlPatientRoom);
+  }
+
+  getEmployeeById(id:number): Observable<Employee> {
+    return this.http.get<Employee>(this.baseUrl + this.urlEmployeeId + '?id=' + id);
   }
 }
