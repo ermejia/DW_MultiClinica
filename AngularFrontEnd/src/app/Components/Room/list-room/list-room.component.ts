@@ -1,21 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from '../../Service/data.service';
-import {Room} from 'src/app/Model/Room'
+import {DataService} from '../../../Service/data.service';
+import {Room} from 'src/app/Model/Room';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-list-room',
   templateUrl: './list-room.component.html',
   styleUrls: ['./list-room.component.css']
 })
 export class ListRoomComponent implements OnInit {
-  rooms:Room[];
+  rooms: Observable<Room[]>;
 
-  constructor(private service:DataService) { }
+  constructor(private service:DataService, private router:Router) { }
 
   ngOnInit(): void {
-    this.service.getRoom().subscribe((roomsFromApi: Room[]) =>{
-      this.rooms = roomsFromApi
-      console.log(this.rooms);
-    }, error => console.error(error));
+    this.reloadData();
   }
 
+  reloadData() {
+    this.rooms = this.service.getRooms();
+  }
+
+  AddRoom(){
+    this.router.navigate(["add-room"]);
+  }
+
+  EditRoom(id:number){
+    this.router.navigate(["edit-room", id]);
+  }
 }
