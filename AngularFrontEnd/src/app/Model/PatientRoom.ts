@@ -4,4 +4,7 @@ export class PatientRoom{
     idRoom: number;
     dateIn: Date;
     dateOut: Date;
+    dpi: number;
+    namePatient: string;
+    RoomDescription: string;
 }

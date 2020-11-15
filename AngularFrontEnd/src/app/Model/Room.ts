@@ -3,4 +3,5 @@ export class Room {
     nuBed: number;
     description: string;
     state: string;
+    disponibles: number;
 }
