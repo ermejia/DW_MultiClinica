@@ -10,6 +10,7 @@ import {DataService} from '../../../Service/data.service';
   styleUrls: ['./list-patient.component.css']
 })
 export class ListPatientComponent implements OnInit {
+
   patients: Observable<Patient[]>;
 
   constructor(private service:DataService, private router:Router) { }
