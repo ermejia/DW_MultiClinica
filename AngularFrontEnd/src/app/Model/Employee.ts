@@ -1,12 +1,13 @@
 export class Employee{
-    idEmployee:number;
+    idEmpmloyee:number;
     idJob: number;
-    idPerson:number;
+    job: string;
     name: string;
     surname: string;
     dpi: number;
     address: string;
     phone: number
     contactphone: number;
-    birthdate: string;
+    birthdate: Date;
+    gender: string;
 }

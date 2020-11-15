@@ -4,5 +4,6 @@ export class Medicine{
     lab: string;
     adminway: string;
     description: string;
-    expirationdate: Date;
+    expirationdate: string;
+    lots: number;
 }
