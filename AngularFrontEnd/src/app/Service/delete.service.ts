@@ -9,11 +9,23 @@ export class DeleteService {
 
 
   baseUrl = '/ClinicaWeb-1.0-SNAPSHOT';
-  urlEmployee = '/EmployeeServlet';
+  urlEmployee = '/deleteEmployee';
+  urlMedicine = '/deleteMedicine';
+  urlPatient = '/deletePatient';
+  urlClinic = '/deleteClinic';
 
   constructor(private http:HttpClient) { }
 
-  deleteEmployee(idEmployee: number): Observable<any> {
-    return this.http.post(`${this.baseUrl+this.urlEmployee}`, idEmployee);
+  deleteEmployee(employee: Object): Observable<any> {
+    return this.http.post(`${this.baseUrl+this.urlEmployee}`, employee);
+  }
+  deleteMedicine(medicine: Object): Observable<any> {
+    return this.http.post(`${this.baseUrl+this.urlMedicine}`, medicine);
+  }
+  deletePatient(patient: Object): Observable<any> {
+    return this.http.post(`${this.baseUrl+this.urlPatient}`, patient);
+  }
+  deleteClinic(clinic: Object): Observable<any> {
+    return this.http.post(`${this.baseUrl+this.urlClinic}`, clinic);
   }
 }

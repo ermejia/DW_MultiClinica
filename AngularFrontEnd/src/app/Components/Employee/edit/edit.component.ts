@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Employee } from 'src/app/Model/Employee';
+import { Job } from 'src/app/Model/Job';
 import { DataService } from 'src/app/Service/data.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { DeleteService } from 'src/app/Service/delete.service';
+import { UpdateServiceService } from 'src/app/Service/update-service.service';
 
 @Component({
   selector: 'app-edit',
@@ -11,16 +13,51 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  employee: Employee;
-  employeeForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute,private router: Router,
-    private service: DataService) { }
+  id: number;
+  public employee: Employee[];
+  employees: Employee = new Employee();
+  jobs: Observable<Job[]>;
+  alertUpdate: boolean = false;
+  alertDelete: boolean = false;
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute, private router: Router, private employeeService: DataService,
+    private updateEmployee: UpdateServiceService, private deleteService:DeleteService) {
   }
+
+  ngOnInit(){
+    this.employeeService.getEmployee(this.route.snapshot.params.id).subscribe((result)=>{
+      this.employee = result;
+    })
+
+    this.getJob();
+  }
+
+  getJob(): void {
+      this.jobs = this.employeeService.getJob();
+    }
+
+  save() {
+    this.updateEmployee
+      .updateEmployee(this.employee).subscribe(data => {
+        this.gotoList();
+      }),
+      this.alertUpdate=true;
+    }
+
+  onSubmit(){
+    this.save();
+  }
+
+  deleteEmployees() {
+    this.deleteService
+      .deleteEmployee(this.employee).subscribe(data => {
+        this.gotoList();
+      });
+      this.alertDelete=true;
+    }
 
   gotoList() {
-    this.router.navigate(['list']);
-  }
+    this.router.navigate(["list"]);
+    }
 }

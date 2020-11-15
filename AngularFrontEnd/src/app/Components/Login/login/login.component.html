@@ -1,0 +1,21 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <div class="fadeIn first">
+      <img src="https://www.flaticon.es/svg/static/icons/svg/891/891384.svg" id="icon" alt="User Icon" width="500" height="200"/>
+    </div>
+
+    <form>
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="User">
+      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Password">
+      <input type="submit" class="fadeIn fourth" (click)="gotoMenu()" value="Log In">
+
+    </form>
+
+    <div id="formFooter">
+      <a class="underlineHover" href="#">MultiClinic Copenhague</a>
+      <a class="nav-link" (click)="Appointment()" >Create Appointment</a>
+    </div>
+
+  </div>
+</div>
