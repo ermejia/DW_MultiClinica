@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <img src="https://www.flaticon.es/svg/static/icons/svg/3654/3654772.svg" width="30" height="30" class="d-inline-block align-top">
+    Clinics Copenhague</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" (click)="List()">Employees <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" (click)="ListDoctor()">Doctors</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" (click)="ListMedicine()">Medicines</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" (click)="ListClinic()" >Clinics</a>
+      </li>
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Patients
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" (click)="ListPatient()" >Patients</a>
+          <a class="dropdown-item"(click)="ListRoom()">Roms</a>
+          <a class="dropdown-item" (click)="ListPatientRoom()">Patients Room</a>
+          <a class="dropdown-item" (click)="ListAppointment()">Patients Appointments</a>
+        </div>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" (click)="History()" >Histories</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" (click)="Diagnostic()" >Create Diagnostic</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" (click)="Appointment()" >Create Appointment</a>
+      </li>
+    </ul>
+  </div>
+</nav>
