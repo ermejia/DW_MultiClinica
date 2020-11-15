@@ -7,7 +7,6 @@ import { DataService } from 'src/app/Service/data.service';
 import { DeleteService } from 'src/app/Service/delete.service';
 import { UpdateServiceService } from 'src/app/Service/update-service.service';
 
-
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
