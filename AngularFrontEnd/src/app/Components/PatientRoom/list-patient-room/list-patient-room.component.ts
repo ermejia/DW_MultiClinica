@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { PatientRoom } from 'src/app/Model/PatientRoom';
-import {DataService} from '../../Service/data.service';
+import {DataService} from '../../../Service/data.service';
 
 @Component({
   selector: 'app-list-patient-room',
@@ -8,14 +10,23 @@ import {DataService} from '../../Service/data.service';
   styleUrls: ['./list-patient-room.component.css']
 })
 export class ListPatientRoomComponent implements OnInit {
-  patientRooms:PatientRoom[];
+  patientRooms: Observable<PatientRoom[]>;
 
-  constructor(private service:DataService) { }
+  constructor(private service:DataService, private router:Router) { }
 
   ngOnInit(): void {
-    this.service.getPatientRoom().subscribe((patientsFromApi: PatientRoom[]) =>{
-      this.patientRooms = patientsFromApi
-      console.log(this.patientRooms);
-    }, error => console.error(error));
+    this.reloadData();
+  }
+
+  reloadData() {
+    this.patientRooms = this.service.getPatientRooms();
+  }
+
+  AddPatientRoom(){
+    this.router.navigate(["add-patient-room"]);
+  }
+
+  EditPatientRoom(id:number){
+    this.router.navigate(["edit-patient-room", id]);
   }
 }

@@ -11,6 +11,7 @@ import { DeleteService } from 'src/app/Service/delete.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+
   employees: Observable<Employee[]>;
 
   constructor(private service:DataService, private deleteService: DeleteService,private router:Router) { }
@@ -47,7 +48,4 @@ export class ListComponent implements OnInit {
         },
         error => console.log(error));
   }
-
-
-
 }
