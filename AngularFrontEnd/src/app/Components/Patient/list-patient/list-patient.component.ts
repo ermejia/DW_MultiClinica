@@ -8,8 +8,8 @@ import {DataService} from '../../Service/data.service';
   styleUrls: ['./list-patient.component.css']
 })
 export class ListPatientComponent implements OnInit {
-  patients:Patient[];
-
+  patients: Observable<Patient[]>;
+  
   constructor(private service:DataService) { }
 
   ngOnInit(): void {
